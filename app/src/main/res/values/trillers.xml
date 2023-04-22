@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="trillers">
+        <item>Семь</item>
+        <item>Старикам тут не место</item>
+        <item>Убийца</item>
+        <item>Апгрейд</item>
+        <item>Помни</item>
+        <item>Исчезнувшая</item>
+        <item>Константин</item>
+        <item>Три дня на побег</item>
+        <item>Исходный код</item>
+        <item>Законопослушный гражданин</item>
+
+    </string-array>
+</resources>

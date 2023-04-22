@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mAct = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mAct.root)
+
+
+
         mAct.button1.setOnClickListener {
             goNextAct("Action_movie")
 
@@ -30,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //val trillers =resources.getStringArray(R.array.trillers)
 
     companion object {
         val films = mapOf(
@@ -63,8 +67,7 @@ class MainActivity : AppCompatActivity() {
                 "Перевозчик","Кто я?","Королевская битва","Голодные игры","Мистер и миссис Смит","Шанхайский полдень"
                 ,"Плохие парни","Я - легенда","300 спартанцев","Хардкор","Патруль","Эквилибриум","Заложница","Великий уравнитель","Книга Илая",
                 "Грань будущего","Брат 2","Война","Дурак","Майор","Джанго освобождённый","Криминальное чтиво","7 психопатов","Залечь на дно в Брюгге",
-                "Омерзительная восьмерка","Безумный Макс","","","","","","","","","","","","","",""
-                ,"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","")
+                "Омерзительная восьмерка","Безумный Макс","","","","","","","","","","","","","","")
         )
     }
 
@@ -75,5 +78,7 @@ class MainActivity : AppCompatActivity() {
            startActivity(i)
 
     }
+
+
 
 }

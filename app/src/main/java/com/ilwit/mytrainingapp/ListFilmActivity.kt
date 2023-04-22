@@ -4,6 +4,7 @@ import android.R
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,7 @@ class ListFilmActivity : AppCompatActivity() {
         testCat.apply {
             recyclerV.layoutManager = LinearLayoutManager(this@ListFilmActivity)
             recyclerV.adapter = adapter
-            adapter.
+
         }
     }
 
@@ -29,22 +30,30 @@ class ListFilmActivity : AppCompatActivity() {
         setContentView(testCat.root)
 
         val listOfFilms = intent.getStringArrayExtra(FILMS_KEY) as Array<String>
+        val films = stringToFilm(listOfFilms)
+        Log.d("Films", films.joinToString())
+        adapter.filmList.addAll(films)
+        adapter.notifyDataSetChanged()
 
         init()
 
-        testCat.backButton.setOnClickListener{
+        testCat.backButton.setOnClickListener {
             finish()
         }
 
         testCat.personal.text = intent.getStringExtra(TITLE_KEY)
-
-       // var adapt : ArrayAdapter<String> = ArrayAdapter<String>(this, R.layout.simple_list_item_1, listOfFilms)
-        //testCat.listOfFilms.adapter = adapt
+        
     }
-        companion object {
-            const val TITLE_KEY = "TITLE_KEY"
-            const val FILMS_KEY = "FILMS_KEY"
-        }
 
+    companion object {
+        const val TITLE_KEY = "TITLE_KEY"
+        const val FILMS_KEY = "FILMS_KEY"
+    }
 
+    fun stringToFilm(films: Array<String>): List<Film> {
+        Log.d("HZ", "DO")
+        return films.map { Film(it) }.toList()
+        Log.d("HZ", "POSLE")
+
+    }
 }
