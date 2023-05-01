@@ -29,10 +29,9 @@ class ListFilmActivity : AppCompatActivity() {
         testCat = ActivityListFilmBinding.inflate(layoutInflater)
         setContentView(testCat.root)
 
-        val listOfFilms = intent.getStringArrayExtra(FILMS_KEY) as Array<String>
-        val films = stringToFilm(listOfFilms)
-        Log.d("Films", films.joinToString())
-        adapter.filmList.addAll(films)
+        val state = intent.getParcelableExtra<FilmState>(STATE_KEY)!!
+
+        adapter.filmList.addAll(state.listOffilms)
         adapter.notifyDataSetChanged()
 
         init()
@@ -40,20 +39,12 @@ class ListFilmActivity : AppCompatActivity() {
         testCat.backButton.setOnClickListener {
             finish()
         }
-
-        testCat.personal.text = intent.getStringExtra(TITLE_KEY)
+        testCat.personal.text = state.title
         
     }
-
     companion object {
-        const val TITLE_KEY = "TITLE_KEY"
-        const val FILMS_KEY = "FILMS_KEY"
+
+        const val STATE_KEY = "STATE_KEY"
     }
 
-    fun stringToFilm(films: Array<String>): List<Film> {
-        Log.d("HZ", "DO")
-        return films.map { Film(it) }.toList()
-        Log.d("HZ", "POSLE")
-
-    }
 }

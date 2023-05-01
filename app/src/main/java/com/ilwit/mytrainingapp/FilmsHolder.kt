@@ -10,6 +10,8 @@ class FilmsHolder(private val binding: FilmItemBinding) : RecyclerView.ViewHolde
 
     fun bind(film: Film) = with(binding){
         filmName.text = film.name
+        filmProd.text = film.producer
+        filmYear.text = film.year.toString()
     }
 
 }
